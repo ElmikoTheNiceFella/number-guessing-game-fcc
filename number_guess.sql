@@ -16,17 +16,17 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE number_guess;
+DROP DATABASE guess;
 --
--- Name: number_guess; Type: DATABASE; Schema: -; Owner: freecodecamp
+-- Name: guess; Type: DATABASE; Schema: -; Owner: freecodecamp
 --
 
-CREATE DATABASE number_guess WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+CREATE DATABASE guess WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
 
 
-ALTER DATABASE number_guess OWNER TO freecodecamp;
+ALTER DATABASE guess OWNER TO freecodecamp;
 
-\connect number_guess
+\connect guess
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -44,32 +44,29 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: guesses; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
-CREATE TABLE public.users (
-    name character varying(22) NOT NULL,
-    number_of_games integer NOT NULL,
-    best_score integer NOT NULL
+CREATE TABLE public.guesses (
+    username character varying(22),
+    games_played integer,
+    best_game integer
 );
 
 
-ALTER TABLE public.users OWNER TO freecodecamp;
+ALTER TABLE public.guesses OWNER TO freecodecamp;
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: guesses; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.users VALUES ('user_1711960652982', 2, 14);
-INSERT INTO public.users VALUES ('user_1711960652983', 5, 161);
-
-
---
--- Name: users users_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_name_key UNIQUE (name);
+INSERT INTO public.guesses VALUES ('Elmiko', 2, 8);
+INSERT INTO public.guesses VALUES ('user_1712484310606', 2, 9);
+INSERT INTO public.guesses VALUES ('user_1712484310607', 5, 33);
+INSERT INTO public.guesses VALUES ('user_1712484406690', 2, 67);
+INSERT INTO public.guesses VALUES ('user_1712484406691', 5, 3);
+INSERT INTO public.guesses VALUES ('user_1712484412022', 2, 85);
+INSERT INTO public.guesses VALUES ('user_1712484412023', 5, 5);
 
 
 --
